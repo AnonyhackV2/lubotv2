@@ -108,7 +108,7 @@ const a = {
   }
 };
 
-modorts = {
+module.exports = {
   config: a,
   handleCommand,
   onStart: handleCommand,
