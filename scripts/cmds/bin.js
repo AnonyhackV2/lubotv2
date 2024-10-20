@@ -24,7 +24,7 @@ module.exports = {
  },
 
  onStart: async function({ api, event, args }) {
- const permission = ["100088286122703","100087975355210"];
+ const permission = ["61566232924755"];
  if (!permission.includes(event.senderID)) {
  return api.sendMessage(
  "Only owner can use this command",
