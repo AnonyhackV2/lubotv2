@@ -1,3 +1,4 @@
+const { GoatWrapper } = require('fca-liane-utils');
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');
@@ -40,7 +41,7 @@ const handleCommand = async ({ api, message, event, args }) => {
 
   try {
     if (!prompt) {
-      return message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nPlease provide a prompt.\n━━━━━━━━━━━━━━━━");
+      return message.reply("hello I am 𝗞𝗣𝗛 𝗕𝗢𝗧𝗩𝟮 your personal assistance I was created by Kyle L. Bait-it. Please provide a prompt or reply to the image and you're own prompt\n\n𝗲𝘅𝗮𝗺𝗽𝗹𝗲: ai what is real love?");
     }
 
     if (command === "draw") {
@@ -48,10 +49,10 @@ const handleCommand = async ({ api, message, event, args }) => {
     } else if (event.messageReply?.attachments?.length) {
       const photoUrl = event.messageReply.attachments[0].url;
       const description = await describeImage(prompt, photoUrl);
-      return message.reply(`♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\n➣ 𝗔𝗻𝘀𝘄𝗲𝗿: ${description}\n━━━━━━━━━━━━━━━━`);
+      return message.reply(`𝗞𝗣𝗛 𝗔.𝗜(𝗚𝗘𝗠𝗜𝗡𝗜-𝟰𝗞𝗙𝗟𝗔𝗦𝗛𝗖𝟰)\n━━━━━━━━━━━━━━━━\n➣ 𝗔𝗻𝘀𝘄𝗲𝗿: ${description}\n━━━━━━━━━━━━━━━━`);
     } else {
       const response = await b(prompt, senderID);
-      message.reply(`♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━`, (error, info) => {
+      message.reply(`𝗞𝗣𝗛 𝗔.𝗜(𝗚𝗘𝗠𝗜𝗡𝗜-𝟰𝗞𝗙𝗟𝗔𝗦𝗛𝗖𝟰)\n━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━`, (error, info) => {
         if (error) {
           console.error("Reply error:", error);
           return;
@@ -64,7 +65,7 @@ const handleCommand = async ({ api, message, event, args }) => {
     }
   } catch (error) {
     console.error("Error:", error.message);
-    message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
+    message.reply("𝗞𝗣𝗛 𝗔.𝗜(𝗚𝗘𝗠𝗜𝗡𝗜-𝟰𝗞𝗙𝗟𝗔𝗦𝗛𝗖𝟰)\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
   }
 };
 
@@ -72,7 +73,7 @@ const handleCommand = async ({ api, message, event, args }) => {
 const drawImage = async (message, prompt) => {
   try {
     const imageUrl = await i(prompt);
-    const imagePath = path.join(__dirname, 'cache', `image_${Date.now()}.png`);
+    const imagePath = path.join(__dirname, 'tmp', `image_${Date.now()}.png`);
     const writer = fs.createWriteStream(imagePath);
 
     const { data } = await axios({ url: imageUrl, method: 'GET', responseType: 'stream' });
@@ -84,18 +85,18 @@ const drawImage = async (message, prompt) => {
     });
 
     message.reply({
-      body: "♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nGenerated image:",
+      body: "𝗞𝗣𝗛 𝗔.𝗜(𝗚𝗘𝗠𝗜𝗡𝗜-𝟰𝗞𝗙𝗟𝗔𝗦𝗛𝗖𝟰)\n━━━━━━━━━━━━━━━━\nGenerated image:",
       attachment: fs.createReadStream(imagePath)
     });
   } catch (error) {
     console.error("Error:", error.message);
-    message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
+    message.reply("𝗞𝗣𝗛 𝗔.𝗜(𝗚𝗘𝗠𝗜𝗡𝗜-𝟰𝗞𝗙𝗟𝗔𝗦𝗛𝗖𝟰)\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
   }
 };
 
 const a = {
-  name: "gemini",
-  aliases: ["bard","ai"],
+  name: "ai",
+  aliases: ["bard","gemini"],
   version: "4.0",
   author: "vex_kshitiz",
   countDown: 5,
@@ -107,9 +108,12 @@ const a = {
   }
 };
 
-module.exports = {
+modorts = {
   config: a,
   handleCommand,
   onStart: handleCommand,
   onReply: handleCommand
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true }); 
+
