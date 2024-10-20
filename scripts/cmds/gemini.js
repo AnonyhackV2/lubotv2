@@ -40,7 +40,7 @@ const handleCommand = async ({ api, message, event, args }) => {
 
   try {
     if (!prompt) {
-      return message.reply("👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nPlease provide a prompt.\n━━━━━━━━━━━━━━━━");
+      return message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nPlease provide a prompt.\n━━━━━━━━━━━━━━━━");
     }
 
     if (command === "draw") {
@@ -48,10 +48,10 @@ const handleCommand = async ({ api, message, event, args }) => {
     } else if (event.messageReply?.attachments?.length) {
       const photoUrl = event.messageReply.attachments[0].url;
       const description = await describeImage(prompt, photoUrl);
-      return message.reply(`👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nDescription: ${description}\n━━━━━━━━━━━━━━━━`);
+      return message.reply(`♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\n➣ 𝗔𝗻𝘀𝘄𝗲𝗿: ${description}\n━━━━━━━━━━━━━━━━`);
     } else {
       const response = await b(prompt, senderID);
-      message.reply(`👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━`, (error, info) => {
+      message.reply(`♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━`, (error, info) => {
         if (error) {
           console.error("Reply error:", error);
           return;
@@ -64,7 +64,7 @@ const handleCommand = async ({ api, message, event, args }) => {
     }
   } catch (error) {
     console.error("Error:", error.message);
-    message.reply("👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
+    message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
   }
 };
 
@@ -84,18 +84,18 @@ const drawImage = async (message, prompt) => {
     });
 
     message.reply({
-      body: "👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nGenerated image:",
+      body: "♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nGenerated image:",
       attachment: fs.createReadStream(imagePath)
     });
   } catch (error) {
     console.error("Error:", error.message);
-    message.reply("👩‍💻 | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
+    message.reply("♊ | 𝙶𝚎𝚖𝚒𝚗𝚒 |\n━━━━━━━━━━━━━━━━\nAn error occurred while processing the request.\n━━━━━━━━━━━━━━━━");
   }
 };
 
 const a = {
   name: "gemini",
-  aliases: ["bard"],
+  aliases: ["bard","ai"],
   version: "4.0",
   author: "vex_kshitiz",
   countDown: 5,
