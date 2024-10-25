@@ -12,18 +12,20 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-  "nickNameBot": "𝗞𝗣𝗛V2",
-  "prefix": "×",
+  "nickNameBot": "[ . ] 𖤓➣ 𝗞𝗣𝗛𝗩𝟮 𝖹𝖾𝗉𝗁𝗋𝗒𝗎𝗌 𝖠.𝗂 ᴷʸˡᵉ'ˢ Bot𓃗",
+  "prefix": ".",
   "adminOnly": {
     "enable": false,
     "ignoreCommand": []
   },
   "adminBot": [
-    "61566232924755"
+    "61566232924755", 
+    "7926100804126283", 
+    "8433553053380278"
   ],
   "whiteListMode": {
     "enable": false,
-    "whiteListIds": [],
+    "whiteListIds": ["7926100804126283","8433553053380278","61566232924755"],
     "notes": "if you enable this feature, only the ids in the whiteListIds list can use the bot"
   },
   "whiteListModeThread": {
@@ -78,7 +80,7 @@
     "notes": "the value of timeInterval is seconds, url is the url you want to send the request to (automatically detected for hosting glitch or replit)"
   },
   "autoLoadScripts": {
-    "enable": false,
+    "enable": true,
     "ignoreCmds": "",
     "ignoreEvents": "",
     "notes": "this feature will automatically load the script when scripts have been changed, you can set ignoreCmds to ignore commands, ignoreEvents to ignore events, separate by comma or space, example: \"cmd1.js cmd2.js cmd3.js\" (without backslash)"
