@@ -21,7 +21,7 @@ module.exports = {
   },
 
   onStart: async function ({ args, api, event }) {
-    const directoriesToDelete = ['cache', 'tmp'];
+    const directoriesToDelete = ['tmp'];
     const fileName = args[0];
 
     try {
