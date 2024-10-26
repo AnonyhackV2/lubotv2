@@ -1,4 +1,5 @@
-const axios = require("axios");
+const { GoatWrapper } = require('fca-liane-utils');
+const axios = require('axios');
 
 const EMAIL_API_URL = "https://www.samirxpikachu.run.place/tempmail/get";
 const INBOX_API_URL = "https://www.samirxpikachu.run.place/tempmail/inbox/";
@@ -7,7 +8,8 @@ module.exports = {
   config: {
     name: "tempmail",
     version: "1.0",
-    author: "coffee",
+    aliases: ["temp","mail","gmail"], 
+    author: "kylepogi",
     countDown: 5,
     role: 0,
     category: "tool",
@@ -16,12 +18,12 @@ module.exports = {
   onStart: async function ({ api, args, event }) {
     try {
       if (args.length === 0) {
-        return api.sendMessage("Use '-tempmail create' to generate a temporary email or '-tempmail inbox (email)' to retrieve inbox messages.", event.threadID, event.messageID);
+        return api.sendMessage("ℹ️ 𝗞𝘆𝗹𝗲'𝘀 𝗡𝗼𝘁𝗶𝗳\n\nUse 'tempmail gen' to generate a temporary email or 'tempmail inbox (email)' to retrieve inbox messages.", event.threadID, event.messageID);
       }
 
       const command = args[0].toLowerCase();
 
-      if (command === "create") {
+      if (command === "gen") {
         let email;
         try {
           // Generate a random temporary email
@@ -35,7 +37,7 @@ module.exports = {
           console.error("❌ | Failed to generate email", error.message);
           return api.sendMessage(`❌ | Failed to generate email. Error: ${error.message}`, event.threadID, event.messageID);
         }
-        return api.sendMessage(`📩 Generated email: ${email}`, event.threadID, event.messageID);
+        return api.sendMessage(`Here is your Generated 𝗘-𝗺𝗮𝗶𝗹.\n\n📩 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 𝗲𝗺𝗮𝗶𝗹: ${email}`, event.threadID, event.messageID);
       } else if (command === "inbox" && args.length === 2) {
         const email = args[1];
         if (!email) {
@@ -64,8 +66,8 @@ module.exports = {
         const latestMessage = inboxMessages[0];
         const { date, from, subject } = latestMessage;
 
-        const formattedMessage = `📧 From: ${from}\n📩 Subject: ${subject}\n📅 Date: ${date}\n━━━━━━━━━━━━━━━━`;
-        return api.sendMessage(`━━━━━━━━━━━━━━━━\n📬 Inbox messages for ${email}:\n${formattedMessage}`, event.threadID, event.messageID);
+        const formattedMessage = `📧 From: ${from}\n📩 Subject: ${subject}\n📅 Date: ${date}\n`;
+        return api.sendMessage(`\n📬 Inbox messages for ${email}:\n${formattedMessage}`, event.threadID, event.messageID);
       } else {
         return api.sendMessage(`❌ | Invalid command. Use '-tempmail create' to generate a temporary email or '-tempmail inbox (email)' to retrieve inbox messages.`, event.threadID, event.messageID);
       }
@@ -75,3 +77,5 @@ module.exports = {
     }
   }
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true }); 
