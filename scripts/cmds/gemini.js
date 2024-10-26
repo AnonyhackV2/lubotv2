@@ -95,7 +95,7 @@ const drawImage = async (message, prompt) => {
 };
 
 const a = {
-  name: "ai",
+  name: "ai2",
   aliases: ["bard","gemini"],
   version: "4.0",
   author: "vex_kshitiz",
