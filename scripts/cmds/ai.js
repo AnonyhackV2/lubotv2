@@ -5,7 +5,7 @@ const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
 
 const Prefixes = [
   'gpt',
-  'ai2',
+  'ai',
   'Robot',
   'bot',
 'Zephyrus', 
