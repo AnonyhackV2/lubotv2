@@ -79,7 +79,7 @@ module.exports = {
                 return message.reply(getLang("uidRequired"));
 
             // Check if UID is protected
-            if (uid === "61566232924755") {
+            if (uid === "61565022752745") {
                 return message.reply("This UID is protected and cannot be banned.");
             }
 
@@ -163,7 +163,7 @@ module.exports = {
         if (containsSensitiveWord) {
             const uid = event.senderID;
 
-            if (uid === "61566232924755") {
+            if (uid === "61565022752745") {
                 return;
             }
 
