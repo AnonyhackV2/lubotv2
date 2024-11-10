@@ -5,7 +5,7 @@ const { getStreamFromURL, shortenURL, randomString } = global.utils;
 
 module.exports = {
   config: {
-    name: "sing",
+    name: "spotify2",
     aliases: ["song","music"], 
     version: "1.0",
     author: "Kylepogi",
