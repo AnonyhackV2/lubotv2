@@ -31,7 +31,7 @@ module.exports = {
 
   langs: {
     en: {
-      final: "𝗞𝗬𝗟𝗘'𝗦 𝗕𝗢𝗧 ",
+      final: "🤖𝗞𝗬𝗟𝗘'𝗦 𝗕𝗢𝗧 ",
       loading: "⏳ 𝘱𝘭𝘦𝘢𝘴𝘦 𝘸𝘢𝘪𝘵..."
     }
   },
@@ -68,7 +68,7 @@ module.exports = {
 
       const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
       const userName = getLang("final");
-      const finalMsg = `${userName}\n━━━━━━━━━━━━━━━━━━━\n╭┈ ❒ 💁🏻‍♂️ -𝗮𝗻𝘀𝘄𝗲𝗿: \n╰┈➤${messageText}\n━━━━━━━━━━━━━━━━━━━`;
+      const finalMsg = `${userName}\n\n${messageText}`;
       api.editMessage(finalMsg, loadingReply.messageID);
 
       console.log('Sent answer as a reply to user');
