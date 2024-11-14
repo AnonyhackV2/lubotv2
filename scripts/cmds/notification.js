@@ -43,7 +43,7 @@ module.exports = {
 		if (!args[0])
 			return message.reply(getLang("missingMessage"));
 		const formSend = {
-			body: `${getLang("notification")}\n━━━━━━━━━━━━━━━━━━━\n╭┈ ❒ 💬 -𝗠𝗘𝗦𝗦𝗔𝗚𝗘:\n╰┈❃➣ ${args.join(" ")}\n━━━━━━━━━━━━━━━━━━━\nℹ️ 𝗽𝗹𝗲𝗮𝘀𝗲 𝖳𝗒𝗉𝖾: .callad 𝗍𝗈 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝖻𝖺𝖼𝗄 𝖺𝖽𝗆𝗂𝗇'𝗌\n╰┈❃➣ 👤𝗈𝗐𝗇𝖾𝗋: Kylepogi\n╰┈❃➣ 🔗link: https://www.facebook.com/ profile. php?id=61566232924755\n╰┈❃➣ remove space!!(thanks for using my bot)`,
+			body: `${getLang("notification")}\n━━━━━━━━━━━━━━━━━━━\n╭┈ ❒ 💬 -𝗠𝗘𝗦𝗦𝗔𝗚𝗘:\n╰┈❃➣ ${args.join(" ")}\n━━━━━━━━━━━━━━━━━━━\nℹ️𝖳𝗒𝗉𝖾: .callad(urownprompt) 𝗍𝗈 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝖻𝖺𝖼𝗄 𝖺𝖽𝗆𝗂𝗇'𝗌`,
 			attachment: await getStreamsFromAttachment(
 				[
 					...event.attachments,
